@@ -28,7 +28,7 @@
         @click:append-inner="visible = !visible" v-model="password"></v-text-field>
 
       <v-btn block class="mb-8" color="blue" size="large" variant="tonal" @click="handleSignUp">
-        Log In
+        Sign Up
       </v-btn>
 
       <v-card-text class="text-center">

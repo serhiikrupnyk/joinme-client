@@ -39,6 +39,22 @@ export default {
       }
     },
 
+    async sendResetLink({ commit }, { email }) {
+      try {
+        const response = await AuthService.sendResetLink(email);
+      } catch (e) {
+        console.error(e.response?.data?.message);
+      }
+    },
+
+    async resetPassword({ commit }, { id, accessToken, password }) {
+      try {
+        const response = await AuthService.resetPassword(id, accessToken, password);
+      } catch (e) {
+        console.error(e.response?.data?.message);
+      }
+    },
+
     async logout({ commit }) {
       try {
         const response = await AuthService.logout();
