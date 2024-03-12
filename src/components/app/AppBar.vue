@@ -5,7 +5,7 @@
       <v-btn stacked variant="tonal" @click="handleLogout">
         <v-icon icon="mdi-login"></v-icon>
 
-        Login
+        Logout
       </v-btn>
     </v-toolbar>
   </v-app-bar>

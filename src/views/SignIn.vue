@@ -13,7 +13,10 @@
         Password
 
         <a class="text-caption text-decoration-none text-blue" href="#" rel="noopener noreferrer" target="_blank">
-          Forgot login password?</a>
+          
+          <router-link class="text-blue text-decoration-none" rel="noopener noreferrer" to="/email-for-reset">
+            Forgot login password?<v-icon icon="mdi-chevron-right"></v-icon>
+        </router-link></a>
       </div>
 
       <v-text-field :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'" :type="visible ? 'text' : 'password'"
@@ -58,7 +61,7 @@ export default {
         );
         router.push("/");
       } catch (error) {
-        console.error('Ошибка при входе:', error);
+        console.error('Error: ', error);
       }
     };
 
