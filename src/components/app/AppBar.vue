@@ -1,6 +1,6 @@
 <template>
-  <v-app-bar>
-    <v-toolbar title="Join Me" color="teal-lighten-2">
+  <v-app-bar app >
+    <v-toolbar title="Join Me" class="gradient">
       <v-menu :location="bottom" width="150px">
       <template v-slot:activator="{ props }">
         <v-btn
@@ -69,5 +69,11 @@ export default {
 
 .pointer:hover {
   box-shadow: 2px 0 2px 4px rgba(0.1, 0, 0, 0.1);
+}
+
+.gradient {
+  color: #FFFFFF !important;
+  background: rgb(60,199,169) !important;
+  background: linear-gradient(90deg, rgba(60,199,169,1) 0%, rgba(9,121,16,0.711922268907563) 49%, rgba(3,152,182,1) 100%) !important;
 }
 </style>
