@@ -4,7 +4,7 @@
 
 <template>
   <main>
-    My Vue.js app!
+    <div>My Vue.js app!</div>
   </main>
 </template>
 
