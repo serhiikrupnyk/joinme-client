@@ -1,6 +1,6 @@
-import AuthService from '@/services/AuthService';
-import { API_URL } from '@/http/index'
-import axios from 'axios'
+import AuthService from "@/services/AuthService";
+import { API_URL } from "@/http/index";
+import axios from "axios";
 
 export default {
   state: {
@@ -18,11 +18,11 @@ export default {
   actions: {
     async login({ commit }, { email, password }) {
       try {
-        commit('setLoading', true);
+        commit("setLoading", true);
         const response = await AuthService.login(email, password);
-        localStorage.setItem('token', response.data.accessToken);
-        commit('setAuth', true);
-        commit('setUser', response.data.user);
+        localStorage.setItem("token", response.data.accessToken);
+        commit("setAuth", true);
+        commit("setUser", response.data.user);
       } catch (e) {
         console.error(e.response?.data?.message);
       }
@@ -30,10 +30,15 @@ export default {
 
     async registration({ commit }, { firstName, lastName, email, password }) {
       try {
-        const response = await AuthService.registration(firstName, lastName, email, password);
-        localStorage.setItem('token', response.data.accessToken);
-        commit('setAuth', true);
-        commit('setUser', response.data.user);
+        const response = await AuthService.registration(
+          firstName,
+          lastName,
+          email,
+          password
+        );
+        localStorage.setItem("token", response.data.accessToken);
+        commit("setAuth", true);
+        commit("setUser", response.data.user);
       } catch (e) {
         console.error(e.response?.data?.message);
       }
@@ -49,7 +54,11 @@ export default {
 
     async resetPassword({ commit }, { id, accessToken, password }) {
       try {
-        const response = await AuthService.resetPassword(id, accessToken, password);
+        const response = await AuthService.resetPassword(
+          id,
+          accessToken,
+          password
+        );
       } catch (e) {
         console.error(e.response?.data?.message);
       }
@@ -58,24 +67,26 @@ export default {
     async logout({ commit }) {
       try {
         const response = await AuthService.logout();
-        localStorage.removeItem('token');
-        commit('setAuth', false);
-        commit('setUser', {});
+        localStorage.removeItem("token");
+        commit("setAuth", false);
+        commit("setUser", {});
       } catch (e) {
         console.error(e.response?.data?.message);
       }
     },
 
     async checkAuth({ commit }) {
-        try {
-            const response = await axios.get(`${API_URL}/refresh`, { withCredentials: true });
-            localStorage.setItem('token', response.data.accessToken);
-            commit('setAuth', true);
-            commit('setUser', response.data.user);
-        } catch (e) {
-            console.error(e.response?.data?.message);
-        }
-    }
+      try {
+        const response = await axios.get(`${API_URL}/refresh`, {
+          withCredentials: true,
+        });
+        localStorage.setItem("token", response.data.accessToken);
+        commit("setAuth", true);
+        commit("setUser", response.data.user);
+      } catch (e) {
+        console.error(e.response?.data?.message);
+      }
+    },
   },
   getters: {
     user: (state) => state.user,

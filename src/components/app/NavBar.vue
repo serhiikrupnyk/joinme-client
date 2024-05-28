@@ -1,14 +1,19 @@
 <template>
-    <v-navigation-drawer>
-        <v-list>
-          <v-list-item prepend-icon="mdi-view-dashboard" title="Home" value="home" @click="goHome"></v-list-item>
-        </v-list>
-      </v-navigation-drawer>
+  <v-navigation-drawer>
+    <v-list>
+      <v-list-item
+        prepend-icon="mdi-view-dashboard"
+        title="Home"
+        value="home"
+        @click="goHome"
+      ></v-list-item>
+    </v-list>
+  </v-navigation-drawer>
 </template>
 
 <script>
-import { useRouter } from 'vue-router';
-import { useStore } from 'vuex';
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 export default {
   setup() {
@@ -20,13 +25,13 @@ export default {
         //await store.dispatch('home');
         router.push("/");
       } catch (error) {
-        console.error('Logout error:', error);
+        console.error("Logout error:", error);
       }
     };
 
     return {
-      goHome
+      goHome,
     };
-  }
-}
+  },
+};
 </script>

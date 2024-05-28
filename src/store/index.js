@@ -1,34 +1,34 @@
 import { createStore } from "vuex";
-import user from './modules/user';
+import user from "./modules/user";
 
 const store = createStore({
-    state: {
-        error: null,
-        isLoading: false
+  state: {
+    error: null,
+    isLoading: false,
+  },
+
+  getters: {
+    error: (state) => state.error,
+    isLoading: (state) => state.isLoading,
+  },
+
+  mutations: {
+    setError(state, error) {
+      state.error = error;
     },
-
-    getters: {
-        error: (state) => state.error,
-        isLoading: (state) => state.isLoading
+    clearError(state) {
+      state.error = null;
     },
-
-    mutations: {
-        setError(state, error) {
-            state.error = error
-        },
-        clearError(state) {
-            state.error = null
-        },
-        setLoading(state, loading) {
-            state.isLoading = loading;
-        }
+    setLoading(state, loading) {
+      state.isLoading = loading;
     },
+  },
 
-    actions: {},
+  actions: {},
 
-    modules: {
-        user
-    }
+  modules: {
+    user,
+  },
 });
 
 export default store;
