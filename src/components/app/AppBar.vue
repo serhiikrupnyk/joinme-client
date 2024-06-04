@@ -9,12 +9,14 @@
         </template>
 
         <v-list>
-          <v-list-item class="pointer" align="left">
-            <v-list-item-title>
-              <v-icon icon="mdi-account" size="15"></v-icon>
-              Account
-            </v-list-item-title>
-          </v-list-item>
+          <router-link to="/account" class="text-blue text-decoration-none">
+            <v-list-item class="pointer" align="left">
+              <v-list-item-title>
+                <v-icon icon="mdi-account" size="15"></v-icon>
+                Account
+              </v-list-item-title>
+            </v-list-item>
+          </router-link>
           <v-list-item class="pointer" align="left">
             <v-list-item-title>
               <v-icon icon="mdi-message" size="15"></v-icon>

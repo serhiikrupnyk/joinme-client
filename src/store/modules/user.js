@@ -87,6 +87,19 @@ export default {
         console.error(e.response?.data?.message);
       }
     },
+
+    async updateUser({ commit }, { firstName, lastName, email }) {
+      try {
+        const response = await axios.post(`${API_URL}/update-user`, {
+          firstName,
+          lastName,
+          email,
+        });
+        commit("setUser", response.data.user);
+      } catch (e) {
+        console.error(e.response?.data?.message);
+      }
+    },
   },
   getters: {
     user: (state) => state.user,

@@ -5,6 +5,7 @@ import SignIn from "../views/SignIn.vue";
 import EmailForReset from "../views/EmailForReset.vue";
 import NewPassword from "../views/NewPassword.vue";
 import store from "../store";
+import UserAccount from "@/views/UserAccount.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +35,12 @@ const router = createRouter({
       name: "home",
       meta: { layout: "main", auth: true },
       component: HomeView,
+    },
+    {
+      path: "/account",
+      name: "account",
+      meta: { layout: "main", auth: true },
+      component: UserAccount,
     },
   ],
 });
